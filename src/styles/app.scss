@@ -1,0 +1,9 @@
+@import url(@/styles/tailwind.css);
+
+/* src/assets/styles/_globals.scss */
+$primary-color: #42b883;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $primary-color;
+}
