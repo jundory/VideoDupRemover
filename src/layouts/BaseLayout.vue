@@ -1,17 +1,17 @@
 <template>
   <div class="page">
     <div class="header">
-      <Bars3Icon class="w-7" />
+      <Bars3Icon class="w-7" @click="showSidebar()" />
       <!-- 상단 헤더 -->
       <HeaderBar />
     </div>
     <div class="contents">
       <!-- 사이드 바 -->
-      <div class="side-bar" :class="{ active: isSideShow }" @click="showSidebar()">
+      <div class="side-bar" :class="{ active: isSideShow }">
         <SideBar />
       </div>
       <!-- 영상 리스트 -->
-      <div class="item-box">
+      <div class="item-box" :class="{ active: isSideShow }">
         <RouterView />
       </div>
     </div>

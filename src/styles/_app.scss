@@ -76,14 +76,19 @@ body {
   padding: $content-padding;
   min-height: $header-height;
   background-color: #fff;
+
+  &.active {
+    width: calc(100% - #{$sidebar-width--active});
+    margin-left: $sidebar-width--active;
+  }
 }
 
 // ~ : 형제 선택자로 전자와 같은 부모를 둔 후자의 모든 요소 선택
-.contents .side-bar.active ~ .item-box {
-  //contents 아래에 side-bar가 acrive일 때(둘 다 활성화될 때)의 item-box 선택자
-  width: calc(100% - #{$sidebar-width--active});
-  margin-left: $sidebar-width--active;
-}
+// .contents .side-bar.active ~ .item-box {
+//   //contents 아래에 side-bar가 acrive일 때(둘 다 활성화될 때)의 item-box 선택자
+//   width: calc(100% - #{$sidebar-width--active});
+//   margin-left: $sidebar-width--active;
+// }
 
 .chips {
   &__container {
