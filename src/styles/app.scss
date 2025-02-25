@@ -7,3 +7,43 @@ body {
   font-family: Arial, sans-serif;
   background-color: $primary-color;
 }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.header {
+}
+
+.side-box {
+}
+
+.contents-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.chip {
+  // &__
+}
+
+.video {
+  &__container {
+    &--image {
+    }
+    &--desc {
+    }
+  }
+}
