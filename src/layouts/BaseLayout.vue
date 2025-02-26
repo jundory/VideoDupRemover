@@ -1,9 +1,9 @@
 <template>
   <div class="page">
     <div class="header">
-      <Bars3Icon class="w-7" @click="showSidebar()" />
+      <!-- <Bars3Icon class="w-7" @click="showSidebar()" /> -->
       <!-- 상단 헤더 -->
-      <HeaderBar />
+      <HeaderBar @show-sidebar="showSidebar()" />
     </div>
     <div class="contents">
       <!-- 사이드 바 -->
@@ -21,11 +21,10 @@
 import { ref } from 'vue'
 import HeaderBar from '../components/HeaderBar.vue'
 import SideBar from '../components/SideBar.vue'
-import { Bars3Icon } from '@heroicons/vue/24/outline'
 
-const isSideShow = ref(false)
+const isSideShow = ref<boolean>(false)
 
-const showSidebar = () => {
+const showSidebar = (): void => {
   isSideShow.value = !isSideShow.value
 }
 </script>

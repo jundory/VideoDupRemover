@@ -28,7 +28,7 @@ body {
   align-items: center;
   width: 100%;
   padding: 20px;
-  background-color: black;
+  background-color: #fff;
   color: #fff;
   height: $header-height;
   position: fixed;
@@ -105,7 +105,10 @@ body {
 
 .videos {
   &__container {
+    display: flex;
+    flex-wrap: wrap;
     padding-top: 24px;
+    height: 100%;
     &-image {
     }
     &--desc {
