@@ -10,7 +10,9 @@
   <div class="videos__container">영상 리스트 화면</div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import apiService from '../services/apiService'
+import type { VideoResponse } from '../components/models'
 
 const chipsList = ref([
   '전체',
@@ -25,4 +27,19 @@ const chipsList = ref([
   '요리',
   '최근에 업로드된 동영상',
 ])
+
+const getVideoList = () => {
+  apiService
+    .getFakeVideoList()
+    .then((res: VideoResponse) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log('catch', err)
+    })
+}
+
+onMounted(() => {
+  getVideoList()
+})
 </script>
