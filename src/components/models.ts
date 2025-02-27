@@ -2,7 +2,7 @@
 export interface VideoResponse {
   kind: string
   etag: string
-  item: VideoItemResponse[]
+  items: VideoItemResponse[]
   nextPageToken: string
   pageInfo: {
     totalResults: number
