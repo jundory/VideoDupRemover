@@ -27,20 +27,9 @@
 import { ref, onMounted } from 'vue'
 import apiService from '../services/apiService'
 import type { VideoResponse } from '../components/models'
+import { CHIPS_LIST } from '../common/constants'
 
-const chipsList = ref([
-  '전체',
-  '게임',
-  '음악',
-  '야구',
-  '라이브',
-  '믹스',
-  '시트콤',
-  '축구',
-  '애니메이션',
-  '요리',
-  '최근에 업로드된 동영상',
-])
+const chipsList = ref(CHIPS_LIST)
 
 const videoList = ref()
 const getVideoList = () => {

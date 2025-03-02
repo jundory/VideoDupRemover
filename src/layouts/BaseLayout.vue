@@ -1,7 +1,6 @@
 <template>
   <div class="page">
     <div class="header">
-      <!-- <Bars3Icon class="w-7" @click="showSidebar()" /> -->
       <!-- 상단 헤더 -->
       <HeaderBar @show-sidebar="showSidebar()" />
     </div>
