@@ -14,7 +14,7 @@ const router = createRouter({
       children: [
         { path: '', component: VideoList },
         { path: '/short', component: ShortList },
-        { path: '/watch:videoId', component: watchVideo },
+        { path: '/watch', component: watchVideo },
       ],
     },
   ],

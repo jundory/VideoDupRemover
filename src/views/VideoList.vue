@@ -48,8 +48,9 @@ const getVideoList = () => {
     })
 }
 
-const watchVideo = (id: string): void => {
-  router.push(`watch:${id}`)
+const watchVideo = (videoId: string): void => {
+  router.push({ path: '/watch', query: { v: videoId } })
+  // router.push(`/watch/${id}`)
 }
 
 //
