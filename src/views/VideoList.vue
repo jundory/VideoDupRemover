@@ -8,27 +8,31 @@
     </div>
   </div>
   <div class="videos__container">
-    <div class="video-card" v-for="video in videoList" :key="video.id">
-      <div class="video-card__thumbnail">
-        <img :src="video.snippet.thumbnails.medium.url" alt="thumbnail" />
-      </div>
-      <div class="video-card__details">
-        <div class="video-card__details-title">
-          {{ video.snippet.title }}
+    <template v-for="video in videoList" :key="video.id">
+      <div class="video-card" @click="watchVideo(video.id)">
+        <div class="video-card__thumbnail">
+          <img :src="video.snippet.thumbnails.medium.url" alt="thumbnail" />
         </div>
-        <div calss="video-card__channel">
-          {{ video.snippet.channelTitle }}
+        <div class="video-card__details">
+          <div class="video-card__details-title">
+            {{ video.snippet.title }}
+          </div>
+          <div calss="video-card__channel">
+            {{ video.snippet.channelTitle }}
+          </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import apiService from '../services/apiService'
 import type { VideoResponse } from '../components/models'
 import { CHIPS_LIST } from '../common/constants'
 
+const router = useRouter()
 const chipsList = ref(CHIPS_LIST)
 
 const videoList = ref()
@@ -42,6 +46,10 @@ const getVideoList = () => {
     .catch((err) => {
       console.log('catch', err)
     })
+}
+
+const watchVideo = (id: string): void => {
+  router.push(`watch:${id}`)
 }
 
 //

@@ -3,7 +3,7 @@
     <Bars3Icon class="w-7 text-black" @click="showSidebar()" />
   </div>
   <!-- 유튜브 아이콘 -->
-  <div class="header__logo">
+  <div class="header__logo" @click="router.push('/')">
     <img src="@/assets/youtube_logo.svg" alt="YouTube Logo" class="w-24 h-24" />
   </div>
   <!-- 인풋박스 -->
@@ -13,14 +13,16 @@
 </template>
 <script lang="ts" setup>
 import { defineEmits } from 'vue'
+import { useRouter } from 'vue-router'
 import { Bars3Icon } from '@heroicons/vue/24/outline'
 import inputBox from '@/components/inputBox.vue'
 
 interface Emits {
   (event: 'show-sidebar'): void
 }
-
 const emits = defineEmits<Emits>()
+
+const router = useRouter()
 
 const showSidebar = (): void => {
   emits('show-sidebar')
