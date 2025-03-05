@@ -17,21 +17,21 @@ export interface VideoItemResponse {
   snippet: snippetType
 }
 
-interface snippetType {
+export interface snippetType {
   publishedAt: string
-  channelId: string
-  title: string
-  description: string
-  thumbnails: object
+  channelId?: string
+  title?: string
+  description?: string
+  thumbnails?: object
   channelTitle: string
-  tags: string[]
-  categoryId: string
-  liveBroadcastContent: string
+  tags?: string[]
+  categoryId?: string
+  liveBroadcastContent?: string
   localized: {
     title: string
     description: string
   }
-  defaultAudioLanguage: string
+  defaultAudioLanguage?: string
 }
 
 // interface thumbnails {}

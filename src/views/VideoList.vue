@@ -29,7 +29,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import apiService from '../services/apiService'
-import { useVideoStore } from '@/stores/videoStore'
+import { useVideoStore } from '../stores/videoStore'
 import type { VideoResponse, VideoItemResponse } from '../components/models'
 import { CHIPS_LIST } from '../common/constants'
 
