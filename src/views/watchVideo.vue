@@ -4,8 +4,6 @@
       class="video__iframe"
       id="player"
       type="text/html"
-      :width="1024"
-      :height="600"
       :src="videoUrl"
       frameborder="0"
       allowfullscreen
@@ -13,6 +11,19 @@
     >
       <!-- referrerpolicy로 cors 보안 정책 비활성화 -->
     </iframe>
+  </div>
+  <div class="video__columns">
+    <div class="meta-box">
+      <div class="meta-box__title">
+        {{ videoStore.snippet.localized.title }}
+      </div>
+      <div class="meta-box__channel">
+        {{ videoStore.snippet.channelTitle }}
+      </div>
+      <div class="meta-box__desc">
+        {{ videoStore.snippet.localized.description }}
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
