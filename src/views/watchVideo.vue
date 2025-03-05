@@ -1,7 +1,7 @@
 <template>
-  <div>
-    {{ videoUrl }}
+  <div class="video__container">
     <iframe
+      class="video__iframe"
       id="player"
       type="text/html"
       :width="1024"
@@ -18,13 +18,19 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useVideoStore } from '../stores/videoStore'
 
 const route = useRoute()
+
 const videoId = ref<string | undefined>()
 const videoUrl = ref<string | undefined>()
+
+const videoStore = useVideoStore()
 onMounted(() => {
   // videoId.value = route.params.videoId as string
   videoId.value = route.query.v as string
   videoUrl.value = `https://www.youtube.com/embed/${videoId.value}?autoplay=1&mute=1` //정책상 mute 있어야 바로 재생 가능
+
+  console.log('videoDetailInfo:::', videoStore.snippet)
 })
 </script>

@@ -9,7 +9,7 @@
   </div>
   <div class="videos__container">
     <template v-for="video in videoList" :key="video.id">
-      <div class="video-card" @click="watchVideo(video.id)">
+      <div class="video-card" @click="watchVideo(video)">
         <div class="video-card__thumbnail">
           <img :src="video.snippet.thumbnails.medium.url" alt="thumbnail" />
         </div>
@@ -29,10 +29,12 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import apiService from '../services/apiService'
-import type { VideoResponse } from '../components/models'
+import { useVideoStore } from '@/stores/videoStore'
+import type { VideoResponse, VideoItemResponse } from '../components/models'
 import { CHIPS_LIST } from '../common/constants'
 
 const router = useRouter()
+const videoStore = useVideoStore()
 const chipsList = ref(CHIPS_LIST)
 
 const videoList = ref()
@@ -48,8 +50,20 @@ const getVideoList = () => {
     })
 }
 
-const watchVideo = (videoId: string): void => {
-  router.push({ path: '/watch', query: { v: videoId } })
+const watchVideo = (video: VideoItemResponse): void => {
+  console.log(video.id)
+  router.push({
+    path: '/watch',
+    query: { v: video.id },
+    // title: video.snippet.title,
+    // description: video.snippet.description,
+  })
+  const videoDetailInfo = {
+    localized: video.snippet.localized,
+    channelTitle: video.snippet.channelTitle,
+    publishedAt: video.snippet.publishedAt,
+  }
+  videoStore.setSnippet(videoDetailInfo)
   // router.push(`/watch/${id}`)
 }
 

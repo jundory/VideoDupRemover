@@ -3,14 +3,14 @@ export interface VideoResponse {
   kind: string
   etag: string
   items: VideoItemResponse[]
-  nextPageToken: string
+  nextPageToken?: string
   pageInfo: {
     totalResults: number
     resultsPerPage: number
   }
 }
 
-interface VideoItemResponse {
+export interface VideoItemResponse {
   kind: string
   etag: string
   id: string
