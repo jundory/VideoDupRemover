@@ -1,16 +1,13 @@
 <template>
-  <!-- <div class="overlay">
-    <SideBar />
-  </div> -->{{ isSideShow }}
   <div class="page">
-    <div class="header">
+    <div class="header" :class="{ active: isSideShow }">
       <!-- 상단 헤더 -->
       <HeaderBar @show-sidebar="showSidebar()" />
     </div>
     <div class="contents">
       <!-- 사이드 바 -->
       <div class="side-bar" :class="{ active: isSideShow }">
-        <SideBar :isOpen="isSideShow" :key="isSideShow" />
+        <SideBar @show-sidebar="showSidebar()" :isOpen="isSideShow" :key="isSideShow" />
       </div>
       <!-- 영상 리스트 -->
       <div class="item-box" :class="{ active: isSideShow }">

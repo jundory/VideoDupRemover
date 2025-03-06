@@ -4,7 +4,7 @@
 $primary-color: #42b883;
 $header-height: 60px;
 $sidebar-width: 70px;
-$sidebar-width--active: 240px;
+$sidebar-width--active: 250px;
 $content-padding: 20px;
 
 $thumbnail-width-medium: 320px;
@@ -68,7 +68,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   margin-top: $header-height;
-  position: relative;
+  // position: relative;
   flex: 1; //남은 공간 모두 차지
 }
 
@@ -107,26 +107,35 @@ body {
 // }
 
 @media (max-width: 768px) {
-  // .overlay {
-  //   position: absolute;
-  // }
-  // .side-bar {
-  //   position: absolute; // fixed에서 absolute로 변경하여 item-box 위에 오게 함
-  //   width: $sidebar-width--active;
-  //   left: 0;
-  //   transform: translateX(-100%); // 처음에는 숨김
-  //   transition: transform 0.2s ease-in-out; // 부드러운 등장 효과
-
+  // .header {
   //   &.active {
-  //     // left: 0; // 활성화 시 화면에 나타남
-  //     transform: translateX(0); // 활성화 시 부드럽게 나타남
+  //     filter: brightness(0.5);
   //   }
   // }
 
-  // .item-box {
-  //   width: 100% !important; // sidebar가 덮는 형태이므로 전체 차지
-  //   margin-left: 0 !important;
-  // }
+  .side-bar {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 100vh;
+    // inset: 0;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 100;
+
+    &.active {
+      transform: translateX(0);
+      padding-top: 0px;
+    }
+  }
+
+  // overlay 처리
+  .header,
+  .item-box {
+    &.active {
+      filter: brightness(0.5);
+    }
+  }
 }
 
 .chips {
