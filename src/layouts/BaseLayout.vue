@@ -1,4 +1,7 @@
 <template>
+  <!-- <div class="overlay">
+    <SideBar />
+  </div> -->{{ isSideShow }}
   <div class="page">
     <div class="header">
       <!-- 상단 헤더 -->
@@ -7,7 +10,7 @@
     <div class="contents">
       <!-- 사이드 바 -->
       <div class="side-bar" :class="{ active: isSideShow }">
-        <SideBar />
+        <SideBar :isOpen="isSideShow" :key="isSideShow" />
       </div>
       <!-- 영상 리스트 -->
       <div class="item-box" :class="{ active: isSideShow }">

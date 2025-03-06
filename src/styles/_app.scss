@@ -14,8 +14,8 @@ $thumbnail-width-default: 120px;
 
 body {
   font-family: Arial, sans-serif;
-  background-color: $primary-color;
   line-height: 1.4rem;
+  background-color: #fff;
 }
 
 .page {
@@ -25,7 +25,6 @@ body {
   align-items: center;
   min-height: 100vh;
   width: 100%;
-  background-color: #fff;
 }
 
 .header {
@@ -64,10 +63,7 @@ body {
 .contents {
   display: flex;
   justify-content: center;
-  // align-items: center;
   width: 100%;
-  // max-width: 600px;
-  // padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
@@ -106,33 +102,32 @@ body {
   }
 }
 
-/* 특정 화면 크기 이하에서는 sidebar가 item-box 위로 덮이게 설정 */
-@media (max-width: 768px) {
-  .side-bar {
-    position: absolute; // fixed에서 absolute로 변경하여 item-box 위에 오게 함
-    width: $sidebar-width--active;
-    left: 0;
-    transform: translateX(-100%); // 처음에는 숨김
-    transition: transform 0.2s ease-in-out; // 부드러운 등장 효과
-
-    &.active {
-      // left: 0; // 활성화 시 화면에 나타남
-      transform: translateX(0); // 활성화 시 부드럽게 나타남
-    }
-  }
-
-  .item-box {
-    width: 100% !important; // sidebar가 덮는 형태이므로 전체 차지
-    margin-left: 0 !important;
-  }
-}
-
-// ~ : 형제 선택자로 전자와 같은 부모를 둔 후자의 모든 요소 선택
-// .contents .side-bar.active ~ .item-box {
-//   //contents 아래에 side-bar가 acrive일 때(둘 다 활성화될 때)의 item-box 선택자
-//   width: calc(100% - #{$sidebar-width--active});
-//   margin-left: $sidebar-width--active;
+// .overlay {
+//   display: hidden;
 // }
+
+@media (max-width: 768px) {
+  // .overlay {
+  //   position: absolute;
+  // }
+  // .side-bar {
+  //   position: absolute; // fixed에서 absolute로 변경하여 item-box 위에 오게 함
+  //   width: $sidebar-width--active;
+  //   left: 0;
+  //   transform: translateX(-100%); // 처음에는 숨김
+  //   transition: transform 0.2s ease-in-out; // 부드러운 등장 효과
+
+  //   &.active {
+  //     // left: 0; // 활성화 시 화면에 나타남
+  //     transform: translateX(0); // 활성화 시 부드럽게 나타남
+  //   }
+  // }
+
+  // .item-box {
+  //   width: 100% !important; // sidebar가 덮는 형태이므로 전체 차지
+  //   margin-left: 0 !important;
+  // }
+}
 
 .chips {
   &__container {
