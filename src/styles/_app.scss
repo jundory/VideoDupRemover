@@ -80,12 +80,10 @@ body {
   position: fixed;
   left: 0;
   top: $header-height;
-  // width: 6vw;
   width: $sidebar-width;
   height: calc(100vh - #{$header-height}); //헤더 제외한 전체 높이
   padding: $content-padding;
-  background-color: #fafafa;
-  overflow-y: auto; // 내용이 많을 경우 스크롤
+  background-color: #fff;
 
   &.active {
     width: $sidebar-width--active;
@@ -96,7 +94,6 @@ body {
   display: flex;
   flex-direction: column;
   width: calc(100% - #{$sidebar-width});
-  // flex: 1;
   margin-left: $sidebar-width;
   padding: $content-padding;
   padding-top: 0;
@@ -106,6 +103,27 @@ body {
   &.active {
     width: calc(100% - #{$sidebar-width--active});
     margin-left: $sidebar-width--active;
+  }
+}
+
+/* 특정 화면 크기 이하에서는 sidebar가 item-box 위로 덮이게 설정 */
+@media (max-width: 768px) {
+  .side-bar {
+    position: absolute; // fixed에서 absolute로 변경하여 item-box 위에 오게 함
+    width: $sidebar-width--active;
+    left: 0;
+    transform: translateX(-100%); // 처음에는 숨김
+    transition: transform 0.2s ease-in-out; // 부드러운 등장 효과
+
+    &.active {
+      // left: 0; // 활성화 시 화면에 나타남
+      transform: translateX(0); // 활성화 시 부드럽게 나타남
+    }
+  }
+
+  .item-box {
+    width: 100% !important; // sidebar가 덮는 형태이므로 전체 차지
+    margin-left: 0 !important;
   }
 }
 
@@ -122,7 +140,6 @@ body {
     width: 100%;
     height: $header-height;
     position: fixed;
-    z-index: 100;
     display: flex;
     // flex-wrap: wrap;
     gap: 10px;
@@ -197,7 +214,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 72%;
+    height: 63%;
     object-fit: cover; /* 영상의 비율을 유지하며 전체 container를 가득 채우되 여백 추가 */
   }
 
