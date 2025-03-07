@@ -40,6 +40,7 @@ const videoStore = useVideoStore()
 onMounted(() => {
   // videoId.value = route.params.videoId as string
   videoId.value = route.query.v as string
+  // &start= 쿼리로 시작 시간 설정 가능
   videoUrl.value = `https://www.youtube.com/embed/${videoId.value}?autoplay=1&mute=1` //정책상 mute 있어야 바로 재생 가능
 
   console.log('videoDetailInfo:::', videoStore.snippet)
